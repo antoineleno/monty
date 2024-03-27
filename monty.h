@@ -40,7 +40,6 @@ typedef struct instruction_s
 } instruction_t;
 
 
-
 void push_element(stack_t **stack, int n);
 void pall_elements(stack_t **stack, int line_number);
 void pint_element(stack_t **stack);

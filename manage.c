@@ -1,5 +1,4 @@
 #include "monty.h"
-#include <stdio.h>
 
 /**
  * manage_functions - function to mannage all the functions

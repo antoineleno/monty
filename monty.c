@@ -17,12 +17,15 @@ int main(int argc, char *argv[])
 	}
 
 	file = fopen(argv[1], "r");
-	if (file == NULL)
+	if (argv[1] == NULL)
 	{
 		fprintf(stderr, "can't open file %s\n", argv[1]);
 	}
-
-	manage_functions(file);
+	else
+	{
+		manage_functions(file);
+		fclose(file);
+	}
 
 	return (0);
 }
