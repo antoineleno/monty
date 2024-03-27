@@ -13,7 +13,7 @@ void manage_functions(FILE *file)
 	char *all_lines = NULL;
 	unsigned int line_number = 0;
 	stack_t *stack = NULL;
-	
+
 	while ((read = (getline(&all_lines, &len, file)) != -1))
 	{
 		line_number++;
