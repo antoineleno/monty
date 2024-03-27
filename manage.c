@@ -33,7 +33,7 @@ void manage_functions(FILE *file)
 
 				if (n == 0)
 				{
-					printf("L3: usage: push integer");
+					fprintf(stderr, "L%d: usage: push integer\n", n);
 				}
 
 				push_element(&stack, n);
