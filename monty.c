@@ -12,20 +12,18 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		fprintf(stderr, "Usage: push <int>\n");
+		fprintf(stderr,"USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
 	file = fopen(argv[1], "r");
-	if (argv[1] == NULL)
+	if (file == NULL)
 	{
 		fprintf(stderr, "can't open file %s\n", argv[1]);
 	}
-	else
-	{
-		manage_functions(file);
-		fclose(file);
-	}
+
+	manage_functions(file);
+	fclose(file);
 
 	return (0);
 }
