@@ -30,6 +30,7 @@ void manage_functions(FILE *file)
 			{
 				char *args = strtok(NULL, " \t\n");
 				int n = atoi(args);
+
 				if (n == 0)
 				{
 					printf("L3: usage: push integer");
