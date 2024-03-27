@@ -16,11 +16,11 @@ void manage_functions(FILE *file)
 	while ((read = (getline(&all_lines, &len, file)) != -1))
 	{
 		if (read == -1)
-       		{
-            		fprintf(stderr, "Error reading file\n");
-            		free(all_lines);
-            		exit(EXIT_FAILURE);
-       		}
+		{
+			fprintf(stderr, "Error reading file\n");
+			free(all_lines);
+			exit(EXIT_FAILURE);
+		}
 		line_number++;
 		if (all_lines != NULL && all_lines[0] != '#')
 		{
