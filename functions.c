@@ -68,6 +68,7 @@ void nop_function(stack_t **stack, int n)
 
 void print_top(stack_t **stack, unsigned int line_number)
 {
+	(void) line_number;
 	printf("%d\n", (*stack)->n);
 }
 
