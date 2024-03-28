@@ -73,7 +73,7 @@ void manage_functions(FILE *file)
 			}
 			else
 			{
-				printf("L%d: unknown instruction %s", line_number, opcode);
+				printf("L%d: unknown instruction %s\n", line_number, opcode);
 				exit(EXIT_FAILURE);
 			}
 		}
