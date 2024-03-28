@@ -26,3 +26,24 @@ void push_element(stack_t **stack, int n)
 	}
 	*stack = new_node;
 }
+
+/**
+ * print_stack - Function to print all the elements of the stack
+ * @stack: pointer to the stack
+ * @line_number: line number
+ */
+
+void print_stack(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+
+	(void) line_number;
+	if (stack == NULL)
+		exit(EXIT_FAILURE);
+	tmp = *stack;
+	while (tmp != NULL)
+	{
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
+	}
+}
