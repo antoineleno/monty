@@ -25,6 +25,9 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
+#define STACK_MODE 0
+#define QUEUE_MODE 1
+
 extern int mode;
 
 /**
