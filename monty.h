@@ -55,6 +55,7 @@ void pall_elements(stack_t **stack, int line_number);
 void nop_function(stack_t **stack, int n);
 void free_nodes(void);
 void manage_functions(FILE *file);
-
+void call_function(char *function);
+void push_element(stack_t **stack, int n);
 #endif
 

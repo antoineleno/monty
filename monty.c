@@ -38,8 +38,27 @@ int main(int argc, char *argv[])
 
 void manage_functions(FILE *file)
 {
-	(void) file;
-	printf("Antoine");
+	ssize_t read;
+	size_t len = 0;
+	char *lines = NULL;
+	unsigned int line_number = 0;
+	stack_t *stack = NULL;
+
+	while ((read = getline(&lines, &len, file)) != -1)
+	{
+		line_number++;
+		if (lines != NULL && lines[0] != '#')
+		{
+			char *opcode = strtok(lines, " \n");
+			if (strcmp(opcode, "push") == 0)
+			{
+				char *args = strtok(NULL, " \n");
+				int n = atoi(args);
+				push_element(&stack, n);
+			}
+		}
+
+	}
 }
 
 
