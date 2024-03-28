@@ -47,33 +47,30 @@ void manage_functions(FILE *file)
 	while ((read = getline(&lines, &len, file)) != -1)
 	{
 		line_number++;
-		if (lines != NULL && lines[0] != '#')
+		char *opcode = strtok(lines, " \n");
+
+		if (strcmp(opcode, "push") == 0)
 		{
-			char *opcode = strtok(lines, " \n");
+			char *args = strtok(NULL, " \n");
+			int n = atoi(args);
 
-			if (strcmp(opcode, "push") == 0)
+			if (!isAllDigits(args))
 			{
-				char *args = strtok(NULL, " \n");
-				int n = atoi(args);
-
-				if (!isAllDigits(args))
-				{
-					fprintf(stderr, "L%d: usage: push integer\n", line_number);
-					exit(EXIT_FAILURE);
-				}
-				push_element(n);
-			}
-			else if (strcmp(opcode, "pall") == 0)
-				print_stack(&head, line_number);
-			else if (strcmp(opcode, "nop") == 0)
-				nop_function(&stack, line_number);
-			else if (strcmp(opcode, "pint") == 0)
-				print_top(&stack, line_number);
-			else
-			{
-				fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
 			}
+			push_element(n);
+		}
+		else if (strcmp(opcode, "pall") == 0)
+			print_stack(&head, line_number);
+		else if (strcmp(opcode, "nop") == 0)
+			nop_function(&stack, line_number);
+		else if (strcmp(opcode, "pint") == 0)
+			print_top(&stack, line_number);
+		else
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+			exit(EXIT_FAILURE);
 		}
 	}
 }
