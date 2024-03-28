@@ -32,12 +32,6 @@ void manage_functions(FILE *file)
 					char *args = strtok(NULL, " \t\n");
 					int n = atoi(args);
 
-
-					if (n == 0)
-					{
-						fprintf(stderr, "L%d: usage: push integer\n", n);
-					}
-
 					push_element(&stack, n);
 				}
 				else if (strcmp(opcode, "pall") == 0)
@@ -56,12 +50,6 @@ void manage_functions(FILE *file)
 					char *args = strtok(NULL, " \t\n");
 					int n = atoi(args);
 
-
-					if (n == 0)
-					{
-						fprintf(stderr, "L%d: usage: push integer\n", n);
-					}
-
 					push_element(&stack, n);
 				}
 				else if (strcmp(opcode, "pall") == 0)
@@ -79,12 +67,6 @@ void manage_functions(FILE *file)
 				{
 					char *args = strtok(NULL, " \t\n");
 					int n = atoi(args);
-
-
-					if (n == 0)
-					{
-						fprintf(stderr, "L%d: usage: push integer\n", n);
-					}
 
 					push_element(&stack, n);
 				}
