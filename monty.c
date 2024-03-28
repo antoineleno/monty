@@ -36,7 +36,6 @@ int main(int argc, char *argv[])
  * manage_functions - Function to manage all the case
  * @file: file
  */
-
 void manage_functions(FILE *file)
 {
 	ssize_t read;
@@ -57,27 +56,26 @@ void manage_functions(FILE *file)
 				char *args = strtok(NULL, " \n");
 				int n = atoi(args);
 
+				if (!isAllDigits(args))
+				{
+					printf("antoine");
+					printf("L%d: usage: push integer\n", line_number);
+					exit(EXIT_FAILURE);
+				}
 				push_element(n);
 			}
 			else if (strcmp(opcode, "pall") == 0)
-			{
 				print_stack(&head, line_number);
-			}
 			else if (strcmp(opcode, "nop") == 0)
-			{
 				nop_function(&stack, line_number);
-			}
 			else if (strcmp(opcode, "pint") == 0)
-			{
 				print_top(&stack, line_number);
-			}
 			else
 			{
 				printf("L%d: unknown instruction %s\n", line_number, opcode);
 				exit(EXIT_FAILURE);
 			}
 		}
-
 	}
 }
 
@@ -100,5 +98,23 @@ void free_nodes(void)
 		head = head->next;
 		free(tmp);
 	}
+}
+/**
+ * isAllDigits - Function
+ * @string: string
+ * Return:  Boll
+ */
+
+bool isAllDigits(char *string)
+{
+	while (*string)
+	{
+		if (!isdigit(*string))
+		{
+			return (false);
+		}
+		string++;
+	}
+	return (true);
 }
 

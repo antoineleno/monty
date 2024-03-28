@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdarg.h>
-
+#include <stdbool.h>
 
 #define ERROR_NONE 0
 #define ERROR_FILE_OPEN 1
@@ -60,5 +60,6 @@ void print_stack(stack_t **, unsigned int line_number);
 void nop_function(stack_t **stack, int n);
 void print_top(stack_t **stack, unsigned int line_number);
 stack_t *create_node(int n);
+bool isAllDigits(char *string);
 #endif
 
