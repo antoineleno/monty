@@ -8,10 +8,12 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdarg.h>
-extern int mode;
-#define STACK_MODE 0
-#define QUEUE_MODE 1
 
+
+#define ERROR_NONE 0
+#define ERROR_FILE_OPEN 1
+#define ERROR_INVALID_INSTRUCTION 2
+#define ERROR_STACK_EMPTY 3
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -22,6 +24,7 @@ extern int mode;
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
+
 typedef struct stack_s
 {
 	int n;
@@ -45,11 +48,13 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern stack_t *head;
 
 void push_element(stack_t **stack, int n);
 void pall_elements(stack_t **stack, int line_number);
-void pint_element(stack_t **stack);
-void manage_functions(FILE *file);
 void nop_function(stack_t **stack, int n);
+void free_nodes(void);
+void manage_functions(FILE *file);
+
 #endif
 
