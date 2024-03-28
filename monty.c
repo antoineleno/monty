@@ -71,6 +71,11 @@ void manage_functions(FILE *file)
 			{
 				print_top(&stack, line_number);
 			}
+			else
+			{
+				printf("L%d: unknown instruction %s", line_number, opcode);
+				exit(EXIT_FAILURE);
+			}
 		}
 
 	}
