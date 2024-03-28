@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
 
 void manage_functions(FILE *file)
 {
+	(void) file;
 	printf("Antoine");
 }
 
