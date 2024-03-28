@@ -66,6 +66,10 @@ void manage_functions(FILE *file)
 			{
 				nop_function(&stack, line_number);
 			}
+			else if (strcmp(opcode, "pint") == 0)
+			{
+				print_top(&stack, line_number);
+			}
 		}
 
 	}

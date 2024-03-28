@@ -51,7 +51,7 @@ void print_stack(stack_t **stack, unsigned int line_number)
 
 /**
  * nop_function - Function that does nothing
- * @stact: Stack
+ * @stack: Stack
  * @n: line number while reading
  */
 void nop_function(stack_t **stack, int n)
@@ -59,3 +59,15 @@ void nop_function(stack_t **stack, int n)
 	(void) n;
 	(void) stack;
 }
+
+/**
+ * print_top_stack - Function to print the top of the stak
+ * @stack: stack
+ * @line_number: line number
+ */
+
+void print_top(stack_t **stack, unsigned int line_number)
+{
+	printf("%d\n", (*stack)->n);
+}
+

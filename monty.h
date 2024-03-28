@@ -59,5 +59,6 @@ void call_function(char *function);
 void push_element(stack_t **stack, int n);
 void print_stack(stack_t **stack, unsigned int line_number);
 void nop_function(stack_t **stack, int n);
+void print_top(stack_t **stack, unsigned int line_number);
 #endif
 
