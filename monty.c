@@ -50,6 +50,7 @@ void manage_functions(FILE *file)
 		if (lines != NULL && lines[0] != '#')
 		{
 			char *opcode = strtok(lines, " \n");
+
 			if (strcmp(opcode, "push") == 0)
 			{
 				char *args = strtok(NULL, " \n");
