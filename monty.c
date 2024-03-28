@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
 	FILE *file;
 
-	if (argc != 2)
+	if (argc == 1 || argc > 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
@@ -58,8 +58,7 @@ void manage_functions(FILE *file)
 
 				if (!isAllDigits(args))
 				{
-					printf("antoine");
-					printf("L%d: usage: push integer\n", line_number);
+					fprintf(stderr,"L%d: usage: push integer\n", line_number);
 					exit(EXIT_FAILURE);
 				}
 				push_element(n);
@@ -72,7 +71,7 @@ void manage_functions(FILE *file)
 				print_top(&stack, line_number);
 			else
 			{
-				printf("L%d: unknown instruction %s\n", line_number, opcode);
+				fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 				exit(EXIT_FAILURE);
 			}
 		}
