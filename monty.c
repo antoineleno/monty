@@ -58,9 +58,13 @@ void manage_functions(FILE *file)
 
 				push_element(&stack, n);
 			}
-			else if (strcmp(opcode , "pall") == 0)
+			else if (strcmp(opcode, "pall") == 0)
 			{
 				print_stack(&stack, line_number);
+			}
+			else if (strcmp(opcode, "nop") == 0)
+			{
+				nop_function(&stack, line_number);
 			}
 		}
 

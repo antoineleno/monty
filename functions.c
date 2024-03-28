@@ -47,3 +47,15 @@ void print_stack(stack_t **stack, unsigned int line_number)
 		tmp = tmp->next;
 	}
 }
+
+
+/**
+ * nop_function - Function that does nothing
+ * @stact: Stack
+ * @n: line number while reading
+ */
+void nop_function(stack_t **stack, int n)
+{
+	(void) n;
+	(void) stack;
+}
