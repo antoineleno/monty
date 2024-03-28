@@ -2,29 +2,25 @@
 
 /**
  * push_element - function to push an element to the stack
- * @stack: stack
  * @n: value to be inserted in the new node
  */
-void push_element(stack_t **stack, int n)
+
+void push_element(int n)
 {
 	stack_t *new_node;
 
-	new_node = malloc(sizeof(stack_t));
-	if (new_node == NULL)
+	new_node = create_node(n);
+
+	if (head == NULL)
 	{
-		exit(EXIT_FAILURE);
+		head = new_node;
 	}
-
-	new_node->n = n;
-
-	new_node->prev = NULL;
-	new_node->next = *stack;
-
-	if (*stack != NULL)
+	else
 	{
-		(*stack)->prev = new_node;
+		new_node->next = head;
+		head->prev = new_node;
+		head = new_node;
 	}
-	*stack = new_node;
 }
 
 /**
@@ -61,7 +57,7 @@ void nop_function(stack_t **stack, int n)
 }
 
 /**
- * print_top_stack - Function to print the top of the stak
+ * print_top - Function to print the top of the stak
  * @stack: stack
  * @line_number: line number
  */
@@ -72,3 +68,23 @@ void print_top(stack_t **stack, unsigned int line_number)
 	printf("%d\n", (*stack)->n);
 }
 
+
+/**
+ * create_node - Creates a node.
+ * @n: Number to go inside the node.
+ * Return: Upon sucess a pointer to the node. Otherwise NULL.
+ */
+stack_t *create_node(int n)
+{
+	stack_t *node;
+
+	node = malloc(sizeof(stack_t));
+	if (node == NULL)
+	{
+		printf("Antoine");
+	}
+	node->next = NULL;
+	node->prev = NULL;
+	node->n = n;
+	return (node);
+}

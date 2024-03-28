@@ -1,5 +1,6 @@
 #include "monty.h"
 stack_t *head = NULL;
+
 /**
  * main - Entry point
  * @argc: Number of arguments enter
@@ -32,8 +33,8 @@ int main(int argc, char *argv[])
 }
 
 /**
- * manage_functions - Function to manage all the cases
- * @file: File
+ * manage_functions - Function to manage all the case
+ * @file: file
  */
 
 void manage_functions(FILE *file)
@@ -56,11 +57,11 @@ void manage_functions(FILE *file)
 				char *args = strtok(NULL, " \n");
 				int n = atoi(args);
 
-				push_element(&stack, n);
+				push_element(n);
 			}
 			else if (strcmp(opcode, "pall") == 0)
 			{
-				print_stack(&stack, line_number);
+				print_stack(&head, line_number);
 			}
 			else if (strcmp(opcode, "nop") == 0)
 			{
