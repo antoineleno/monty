@@ -7,21 +7,21 @@ void manage_functions(FILE *file)
     char *all_lines = NULL;
     unsigned int line_number = 0;
     stack_t *stack = NULL;
-    int mode = STACK_MODE;
+    int mode = 0;
 
     while ((read = getline(&all_lines, &len, file)) != -1)
     {
         line_number++;
         if (all_lines != NULL && all_lines[0] != '#')
         {
-            char *opcode = strtok(all_lines, " \t\n");
+            char *opcode = strtok(all_lines, " \n");
             if (strcmp(opcode, "stack") == 0)
             {
-                mode = STACK_MODE;
+                mode = 0;
             }
             else if (strcmp(opcode, "queue") == 0)
             {
-                mode = QUEUE_MODE;
+                mode = 1;
             }
             else
             {
@@ -30,37 +30,35 @@ void manage_functions(FILE *file)
                     char *args = strtok(NULL, " \t\n");
                     int n = atoi(args);
 
-                    if (mode == STACK_MODE || mode == QUEUE_MODE)
+                    if (mode == 0)
                     {
-                        if (mode == STACK_MODE)
-						{
-							push_element(&stack, n);
-						}
-                        else
-						{
-							printf("Antoine");
-						}
+                        push_element(&stack, n);
                     }
-                    else
+                    else if (mode == 1)
                     {
-                        fprintf(stderr, "L%d: Missing mode directive (stack or queue)\n", line_number);
-                        exit(EXIT_FAILURE);
+                        printf("Antoine");
                     }
+                    printf("Antoine");
                 }
                 else if (strcmp(opcode, "pall") == 0)
                 {
-                    if (mode == STACK_MODE)
-					{
-						pall_elements(&stack, line_number);
-					}
-                    else
-					{
-						printf("Antoine");
-					}
+                    if (mode == 0)
+                    {
+                        pall_elements(&stack, line_number);
+                    }
+                    else if (mode == 1)
+                    {
+                        printf("anoint");
+                    }
+                    printf("Antoine");
                 }
                 else if (strcmp(opcode, "nop") == 0)
                 {
                     nop_function(&stack, line_number);
+                }
+                else
+                {
+                    printf("anotine");
                 }
             }
         }

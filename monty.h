@@ -8,6 +8,10 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdarg.h>
+extern int mode;
+#define STACK_MODE 0
+#define QUEUE_MODE 1
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -25,10 +29,7 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
-#define STACK_MODE 0
-#define QUEUE_MODE 1
 
-extern int mode;
 
 /**
  * struct instruction_s - opcode and its function
