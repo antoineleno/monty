@@ -44,6 +44,6 @@ void push_element(stack_t **stack, int n);
 void pall_elements(stack_t **stack, int line_number);
 void pint_element(stack_t **stack);
 void manage_functions(FILE *file);
-
+void nop_function(stack_t **stack, int n);
 #endif
 

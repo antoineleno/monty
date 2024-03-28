@@ -31,6 +31,7 @@ void manage_functions(FILE *file)
 				char *args = strtok(NULL, " \t\n");
 				int n = atoi(args);
 
+
 				if (n == 0)
 				{
 					fprintf(stderr, "L%d: usage: push integer\n", n);
@@ -41,6 +42,10 @@ void manage_functions(FILE *file)
 			else if (strcmp(opcode, "pall") == 0)
 			{
 				pall_elements(&stack, line_number);
+			}
+			else if (strcmp(opcode, "nop") == 0)
+			{
+				nop_function(&stack, line_number);
 			}
 		}
 	}
