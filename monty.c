@@ -54,6 +54,7 @@ void manage_functions(FILE *file)
 			{
 				char *args = strtok(NULL, " \n");
 				int n = atoi(args);
+
 				push_element(&stack, n);
 			}
 		}
