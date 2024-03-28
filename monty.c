@@ -46,9 +46,9 @@ void manage_functions(FILE *file)
 
 	while ((read = getline(&lines, &len, file)) != -1)
 	{
-		line_number++;
 		char *opcode = strtok(lines, " \n");
-
+		
+		line_number++;
 		if (strcmp(opcode, "push") == 0)
 		{
 			char *args = strtok(NULL, " \n");
